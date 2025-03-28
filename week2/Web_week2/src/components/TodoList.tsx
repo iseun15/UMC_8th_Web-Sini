@@ -3,7 +3,7 @@ import { TTodo } from '../types/todo';
 
 interface TodoListProps {
     title : string;
-    todos: TTodo[];
+    todos?: TTodo[];
     buttonLabel : string;
     buttonColor : string;
     onClick: (todo:TTodo) => void;
@@ -14,7 +14,7 @@ const TodoList = ({title, todos, buttonLabel, buttonColor, onClick}: TodoListPro
     <div className="render-container_section">
         <h2 className="render-container_title">{title}</h2>
         <ul id='todo-list' className="render-container_list">
-            {todos.map((todo) =>(
+            {todos?.map((todo) =>(
                 <li key={todo.id} className="render-container_item">
                     <span className="render-container_item-text">{todo.text}</span>
                     <button 

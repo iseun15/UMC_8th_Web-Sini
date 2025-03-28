@@ -1,4 +1,6 @@
-import React from 'react'
+import  React, { FormEvent, useState } from 'react';
+import { useTodo } from '../context/TodoContext';
+
 interface TodoFormProps {
     input : string;
     setInput : (input: string) => void;
@@ -7,8 +9,23 @@ interface TodoFormProps {
 
 
 
-const TodoForm = ({input, setInput, handleSubmit }:
-    TodoFormProps) => {
+const TodoForm = () => {
+    const [input, setInput] = useState<string>('');
+    const {addTodo} = useTodo();
+
+    const handleSubmit = ( e: FormEvent<HTMLFormElement>) :void =>{
+        e.preventDefault();
+        const text = input.trim();
+
+        if (text) {
+            addTodo(text);
+            setInput('');
+        }
+    };
+
+
+
+
     return (
         <form onSubmit={handleSubmit} className="todo-container_form">
             <input 
