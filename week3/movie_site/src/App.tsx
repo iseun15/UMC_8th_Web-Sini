@@ -1,21 +1,12 @@
-import { useState } from 'react'
-import './App.css'
-import { createBrowserRouter, RouterProvider } from 'react-router-dom'
-
-
-import MoviesPage from './pages/movies.tsx';
-
-const router = createBrowserRouter([
-  {path:'movies/:movieId',
-    element: <MoviesPage/>,
-  }
-])
+import './App.css';
+import MoviePage from './pages/MoviePage';
 
 function App() {
-
-
-  return <RouterProvider router={router}/>
-
+  return (
+    <>
+        <MoviePage /> 
+    </>
+  );
 }
 
 export default App
